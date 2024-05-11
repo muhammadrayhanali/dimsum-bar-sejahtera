@@ -17,31 +17,97 @@
 
     <!-- my style -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!--alpinejs -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- app -->
+    <script src="src/app.js"></script>
+
   </head>
   <body>
     <!-- navbar start -->
-    <nav class="navbar">
+    <nav class="navbar" x-data>
       <a href="#" class="navbar-logo">dimsum<span> </span><span>bar</span>.</a>
 
       <div class="navbar-nav">
-        <a href="#">home</a>
+        <a href="#home">home</a>
         <a href="#about">tentang toko</a>
         <a href="#menu">menu</a>
+        <a href="#products">produk</a>
         <a href="#contact">kontak</a>
       </div>
 
       <div class="navbar-extra">
-        <a href="#" id="search"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <a href="#" id="search-button"><i data-feather="search"></i></a>
+        <a href="#" id="shopping-cart-button">
+          <i data-feather="shopping-cart"></i>
+          <span class="quantity-budge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
+        </a>
         <a href="#" id="siomay-ayam-menu"><i data-feather="menu"></i></a>
       </div>
+
+      <!-- search form start -->
+      <div class="search-form">
+      <input type="search" id="search-box" placeholder="search here ...">
+      <label for="search-box"><i data-feather="search"></i></label>
+  </div>
+<!-- search form end -->
+
+<!-- shopping cart start -->
+<div class="shopping-cart">
+  <template x-for="(item, index) in $store.cart.items" x-keys="index">
+  <div class="cart-item">
+    <img :src="`img/products/${item.img}`" :alt="item.name">
+    <div class="item-detail">
+      <h3 x-text="item.name"></h3>
+      <div class="item-price">
+        <span x-text="rupiah(item.price)"></span> &times;
+        <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+        <span x-text="item.quantity"></span>
+        <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+        <span x-text="rupiah(item.total)"></span>
+      </div>
+    </div>
+  </div>
+  </template>
+  <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem;">Cart is Empty</h4>
+  <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
+
+  <div class="form-container" x-show="$store.cart.items.length">
+    <form action="" id="checkoutform">
+      <h5>Customer Detail</h5>
+
+      <label for="name">
+        <span>Name</span>
+        <input type="text" name="name" id="name">
+      </label>
+
+      <label for="email">
+        <span>Email</span>
+        <input type="email" name="email" id="email">
+      </label>
+
+      <label for="phone">
+        <span>Phone</span>
+        <input type="number" name="phone" id="phone" autocomplete="off">
+      </label>
+
+      <button class="checkout-button" type="submit" id="checkout-button" value="checkout">Checkout</button>
+
+    </form>
+  </div>
+</div>
+
+<!-- shopping cart start -->
+
     </nav>
     <!-- navbar end -->
 
     <!-- hero section start -->
     <section class="hero"id="home">
       <main class ="content"><h1>nikmati kenikmatan <span>dimsum</span> dengan bahan yang berkualitas</h1>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum praesentium illum, doloribus error maiores a! Autem inventore sunt consectetur, ea aspernatur nesciunt itaque ducimus, tempore laudantium iusto non aut exercitationem?</p>
+      <p>Mau makan dimsum dengan bahan yang berkualitas, aman dikonsumsi? ramah dikantong? kesehatan makanan terjamin? sudah terferivikasi halal? Disini tempatnya.</p>
       <a href="#" class="cta">Beli Sekarang</a>></a>
       </main>
     </section>
@@ -58,8 +124,8 @@
         </div>
         <div class="content">
           <h3>kenapa memilih dimsum kami?</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore maxime unde minus quis sunt rem!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus vel ipsam expedita sapiente voluptatem eius aliquid excepturi numquam sed similique!</p>
+          <p>Dimsum merupakan makanan yang kaya akan kandungan protein hewani, karbohidrat,vitamin serta serat yang cukup untuk memenuhi kebutuhan tubuhmu.</p>
+          <p>Kelebihan toko kami yaitu kami membeli bahan bahan yang berkualitas dan tentunya masih dalam keadaan fresh/baru, sehingga kebersihan dan kesehatan bahan makanan masih terjaga dengan baik.</p>
 
         </div>
       </div>
@@ -71,43 +137,43 @@
 
     <section id="menu" class="menu">
       <h2><span>menu</span> toko</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil quasi ipsam et minus illo placeat quos.</p>
+      <p>Terdapat berbagai jenis pilihan yang bisa dipilih sesuai selera, dengan isian yang bermacam macam.</p>
 
       <div class="row">
 
       <div class="menu-card">
-        <img src="img/menu-3-bg.png" alt="Ekado" class="menu-card-img">
-        <h3 class="menu-card-title">- Ekado -</h3>
+        <img src="img/ekado.jpg" alt="Ekado" class="menu-card-img">
+        <h3 class="menu-card-title">~ Ekado ~</h3>
         <p class="menu-card-price">IDR 16K</p>
        </div>
 
       <div class="menu-card">
-        <img src="img/menu-3-bg.png" alt="Siomay Kepiting" class="menu-card-img">
-        <h3 class="menu-card-title">- Siomay Kepiting -</h3>
+        <img src="img/Skepiting.jpg" alt="Siomay Kepiting" class="menu-card-img">
+        <h3 class="menu-card-title">~ Siomay Kepiting ~</h3>
         <p class="menu-card-price">IDR 16K</p>
        </div>
 
       <div class="menu-card">
-        <img src="img/menu-3-bg.png" alt="Siomay udang" class="menu-card-img">
-        <h3 class="menu-card-title">- Siomay udang -</h3>
+        <img src="img/KTayam.jpg" alt="kulit tahu ayam" class="menu-card-img">
+        <h3 class="menu-card-title">~ kulit tahu ayam goreng ~</h3>
         <p class="menu-card-price">IDR 16K</p>
        </div>
 
       <div class="menu-card">
-        <img src="img/menu-3-bg.png" alt="Wonton" class="menu-card-img">
-        <h3 class="menu-card-title">- Wonton -</h3>
+        <img src="img/wonton.jpg" alt="Wonton" class="menu-card-img">
+        <h3 class="menu-card-title">~ Wonton ~</h3>
         <p class="menu-card-price">IDR 16K</p>
        </div>
 
       <div class="menu-card">
-        <img src="img/menu-3-bg.png" alt="Hisitkau" class="menu-card-img">
-        <h3 class="menu-card-title">- Hisitkau -</h3>
+        <img src="img/hakau.jpg" alt="hakau" class="menu-card-img">
+        <h3 class="menu-card-title">~ Hakau ~</h3>
         <p class="menu-card-price">IDR 16K</p>
        </div>
 
       <div class="menu-card">
-        <img src="img/menu-3-bg.png" alt="Nori" class="menu-card-img">
-        <h3 class="menu-card-title">- Nori -</h3>
+        <img src="img/bapau.jpg" alt="bapau susu" class="menu-card-img">
+        <h3 class="menu-card-title">~ bapau susu ~</h3>
         <p class="menu-card-price">IDR 16K</p>
        </div>
 
@@ -115,6 +181,105 @@
     </section>
 
     <!-- menu section end -->
+
+    <!-- product section start-->
+
+    <section class="products" id="products" x-data="products">
+      <h2><span>Produk Terpopuler</span> Kami</h2>
+      <p>Dari sekian banyaknya produk kami yang banyak terjual, kami juga merekomendasikan untuk memilih produk yang paling disukai dan paling sering dibeli oleh pembeli.</p>
+
+      <div class="row">
+        <template x-for="(item, index) in items" x-key="index">
+        <div class="product-card">
+          <div class="product-icons">
+            <a href="#" @click.prevent="$store.cart.add(item)">
+              <svg
+  width="24"
+  height="24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#shopping-cart" />
+</svg>
+            </a>
+            <a href="#" class="button" id="item-detail-button">
+              <svg
+  width="24"
+  height="24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#eye" />
+</svg>
+            </a>
+          </div>
+
+          <div class="product-image">
+            <img :src="`img/products/${item.img}`" :alt="item.name">
+          </div>
+
+          <div class="product-content">
+            <h3 x-text="item.name"></h3>
+            <div class="product-stars">
+              <svg
+  width="24"
+  height="24"
+  fill="currentColor"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#star" />
+</svg>
+              <svg
+  width="24"
+  height="24"
+  fill="currentColor"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#star" />
+</svg>
+              <svg
+  width="24"
+  height="24"
+  fill="currentColor"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#star" />
+</svg>
+              <svg
+  width="24"
+  height="24"
+  fill="currentColor"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <use href="img/feather-sprite.svg#star" />
+</svg>
+            </div>
+
+            <div class="product-price" x-text="rupiah(item.price)"></div>
+          </div>
+        </div>
+      </template>
+      </div>
+    </section>
+    <!-- product section end-->
 
     <!-- contact section start-->
     <section id="contact" class="contact">
@@ -173,6 +338,37 @@
 
     <!-- footer end -->
 
+    <!-- modal box item detail start-->
+    <div class="modal" id="item-detail-modal">
+      <div class="modal-container">
+        <a href="#" class="close-icon"><i data-feather="x-circle"></i></a>
+        <div class="modal-content">
+          <img src="img/ekado.jpg" alt="product 1">
+          <div class="product-content">
+            <h3>product 1</h3>
+            <p>Kulit tahu yang  membungkus 3 bahan utama, yakni telur puyuh, udang, dan nori. Yang kemudian dimasak dengan cara di goreng.</p>
+
+            <div class="product-content">
+              <h3>Ekado</h3>
+              <div class="product-stars">
+                <i data-feather="star" class="star-full"></i>
+                <i data-feather="star" class="star-full"></i>
+                <i data-feather="star" class="star-full"></i>
+                <i data-feather="star" class="star-full"></i>
+                <i data-feather="star"></i>
+              </div>
+  
+              <div class="product-price"> IDR 16K</div>
+              <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span> </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal box item detail end-->
+
     <!-- feather icons-->
     <script>
       feather.replace();
@@ -180,5 +376,6 @@
 
     <!-- my javascript -->
     <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
