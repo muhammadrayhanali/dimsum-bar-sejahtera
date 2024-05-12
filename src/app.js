@@ -1,12 +1,12 @@
 document.addEventListener('alpine:init', () => {
   Alpine.data('products', () => ({
       items: [
-        { id: 1, name: '~Ekado~', img:'1.jpg', price: 16000},
-        { id: 2, name: '~Wonton~', img:'2.jpg', price: 16000},
-        { id: 3, name: '~Hakau~', img: '3.jpg', price: 16000},
-        { id: 4, name: '~Siomay Kepiting~', img: '4.jpg', price: 16000},
-        { id: 5, name: '~Bapao Susu~', img: '5.jpg', price: 16000},
-        { id: 6, name: '~Kulit Tahu Ayam~', img: '2.jpg', price: 16000},
+        { id: 1, name: '~Ekado~', img:'1.jpg', price: 20000},
+        { id: 2, name: '~Wonton~', img:'2.jpg', price: 20000},
+        { id: 3, name: '~Hakau~', img: '3.jpg', price: 20000},
+        { id: 4, name: '~Siomay Kepiting~', img: '4.jpg', price: 20000},
+        { id: 5, name: '~Bapao Susu~', img: '5.jpg', price: 20000},
+        { id: 6, name: '~Kulit Tahu Ayam~', img: '2.jpg', price: 20000},
       ],
   }));
 
