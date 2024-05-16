@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Close modal when clicking outside of the modal content
+  // click diluar tombol
   window.addEventListener('click', event => {
     if (event.target === modal) {
       modal.style.display = 'none';
@@ -96,3 +96,5 @@ window.onclick = (e) => {
     itemdetailmodal.style.display = "none";
   }
 };
+
+
