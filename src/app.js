@@ -81,3 +81,4 @@ const rupiah = (Number) => {
     minimumFractionDigits: 0
   }).format(Number)
 }
+

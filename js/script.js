@@ -54,6 +54,34 @@ itemdetailbuttons.forEach((btn) => {
   };
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const openModalButtons = document.querySelectorAll('[id^=item-detail-button]');
+  const closeModalButtons = document.querySelectorAll('.close-icon');
+  const modal = document.getElementById('item-detail-modal');
+
+  openModalButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      modal.style.display = 'block';
+    });
+  });
+
+  closeModalButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      modal.style.display = 'none';
+    });
+  });
+
+  // Close modal when clicking outside of the modal content
+  window.addEventListener('click', event => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
+
+
 // klik tombol close
 
 document.querySelector(".modal .close-icon").onclick = (e) => {
