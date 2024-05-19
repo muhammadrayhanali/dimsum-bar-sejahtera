@@ -6,7 +6,13 @@ document.addEventListener('alpine:init', () => {
         { id: 3, name: '~Hakau~', img: '3.jpg', price: 20000},
         { id: 4, name: '~Siomay Kepiting~', img: '4.jpg', price: 20000},
         { id: 5, name: '~Bapao Susu~', img: '5.jpg', price: 20000},
-        { id: 6, name: '~Kulit Tahu Ayam~', img: '2.jpg', price: 20000},
+        { id: 6, name: '~Kulit Tahu Ayam~', img: '6.jpg', price: 20000},
+        { id: 7, name: '~Angsio~', img: '12.jpg', price: 15000},
+        { id: 8, name: '~Boba Original Thai Tea~', img: '7.jpg', price: 8000},
+        { id: 9, name: '~Boba Green Tea~', img: '8.jpg', price: 8000},
+        { id: 10, name: '~Boba Strawberry Tea~', img: '9.jpg', price: 8000},
+        { id: 11, name: '~Boba Taro~', img: '10.jpg', price: 8000},
+        { id: 12, name: '~Lemon Tea~', img: '11.jpg', price: 5000},
       ],
   }));
 

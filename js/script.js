@@ -96,5 +96,3 @@ window.onclick = (e) => {
     itemdetailmodal.style.display = "none";
   }
 };
-
-
