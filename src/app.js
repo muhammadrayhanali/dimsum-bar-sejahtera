@@ -15,7 +15,7 @@ document.addEventListener('alpine:init', () => {
         { id: 14, name: '~Milkshake Strawberry~', img: '14.jpg', price: 12000},
         { id: 15, name: '~Milkshake Chocolate~', img: '15.jpg', price: 12000},
         { id: 12, name: '~Lemon Tea~', img: '11.jpg', price: 5000},
-        { id: 13, name: '~Ice Cream Strawberry~', img: '13.jpg', price: 8000},
+        { id: 13, name: '~Ice Cream Strawberry~', img: '13.jpg', price: 9000},
       ],
   }));
 
