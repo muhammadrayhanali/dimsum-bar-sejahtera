@@ -260,19 +260,7 @@
   <use href="img/feather-sprite.svg#shopping-cart" />
 </svg>
             </a>
-            <a href="#" class="button" id="item-detail-button">
-              <svg
-  width="24"
-  height="24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <use href="img/feather-sprite.svg#eye" />
-</svg>
-            </a>
+            
           </div>
 
           <div class="product-image">
@@ -281,7 +269,10 @@
 
           <div class="product-content">
             <h3 x-text="item.name"></h3>
+            <h4 x-text="item.description"></h4>
             <div class="product-stars">
+
+              
               <svg
   width="24"
   height="24"
@@ -394,38 +385,6 @@
     </footer>
 
     <!-- footer end -->
-
-    <!-- modal box item detail start-->
-    <div class="modal" id="item-detail-modal">
-      <div class="modal-container">
-        <a href="#" class="close-icon"><i data-feather="x-circle"></i></a>
-        <div class="modal-content">
-          <img src="img/ekado.jpg" alt="product 1">
-          <div class="product-content">
-            <h3>product 1</h3>
-            <p>Kulit tahu yang  membungkus 3 bahan utama, yakni telur puyuh, udang, dan nori. Yang kemudian dimasak dengan cara di goreng.</p>
-
-            <div class="product-content">
-              <h3>Ekado</h3>
-              <div class="product-stars">
-                <i data-feather="star" class="star-full" fill="#d3e20c"></i> 
-                <i data-feather="star" class="star-full" fill="#d3e20c"></i>
-                <i data-feather="star" class="star-full" fill="#d3e20c"></i>
-                <i data-feather="star" class="star-full" fill="#d3e20c"></i>
-                <i data-feather="star"></i>
-              </div>
-  
-              <div class="product-price"> IDR 20K</div>
-              <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span> </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    
-
-    <!-- modal box item detail end-->
 
     <!-- feather icons-->
     <script>

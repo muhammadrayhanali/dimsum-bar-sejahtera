@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.style.display = 'none';
     });
   });
+  
 
   // click diluar tombol
   window.addEventListener('click', event => {

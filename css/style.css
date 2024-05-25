@@ -239,6 +239,11 @@ body {
   cursor: pointer;
 }
 
+.form-container .checkout-button.disabled {
+  background-color: #bdbbbb;
+  cursor: not-allowed;
+}
+
 
 /* hero section */
 
@@ -439,6 +444,10 @@ body {
   font-size: 1.7rem;
 }
 
+.products .product-content h4 {
+  font-size: 0.8rem;
+}
+
 .products .product-stars {
   font-size: 1.7rem;
   padding: 0.8rem;
@@ -566,50 +575,6 @@ footer .credit a {
   border: 1px solid #776c6c;
   width: 80%;
   animation: animatemodal 0.5s;
-}
-
-
-/* modal aninmation */
-@keyframes animatemodal {
-   from {
-    top: -300px;
-    opacity: 0;
-   } 
-   to {
-    top: 0;
-    opacity: 1;
-   }
-}
-
-.modal-container .close-icon {
-  position: absolute;
-  right: 1rem;
-}
-
-.modal-content {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.modal-content img {
-  height: 16rem;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
-}
-.modal-content p {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-  margin-top: 1.2rem;
-}
-
-.modal-content a {
-  display: flex;
-  gap: 1rem;
-  width: 12rem;
-  background-color: #a39962;
-  color: #fff;
-  margin-top: 1rem;
-  padding: 1rem 1.6rem;
 }
 
 
