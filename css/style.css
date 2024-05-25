@@ -442,10 +442,11 @@ body {
 
 .products .product-content h3 {
   font-size: 1.7rem;
+  padding-bottom: 1rem;
 }
 
 .products .product-content h4 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .products .product-stars {
